@@ -4,6 +4,8 @@ RUN apk add bash
 
 RUN apk add httpie
 
+RUN apk add curl
+
 WORKDIR /process/
 
 COPY . . 
