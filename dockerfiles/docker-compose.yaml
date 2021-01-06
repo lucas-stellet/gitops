@@ -1,0 +1,13 @@
+services:
+  api:
+    image: simple-nodejs-server:v2
+    environment:
+      - MY_NAME=Tatiane
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: api
+    volumes:
+      - ./:/process
+    ports:
+      - '3000:3000'
