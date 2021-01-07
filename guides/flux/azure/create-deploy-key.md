@@ -7,7 +7,7 @@ helm repo add fluxcd https://charts.fluxcd.io
 kubectl create namespace fluxcd
 
 # Generate a SSH key named identity
-ssh-keygen -q -N "" -f ./identity
+ssh-keygen -q -N "" -C "lkp@product" -f ./identity 
 
 # Create a Kubernetes secret
 kubectl -n fluxcd create secret generic flux-ssh --from-file=./identity
