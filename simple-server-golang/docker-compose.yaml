@@ -1,0 +1,8 @@
+services:
+  helloGoApi:
+    image: lustepe/simple-server-golang:v1
+    environment:
+      - MY_NAME=Noah
+    container_name: hello-go-api
+    ports:
+      - '3000:3000'

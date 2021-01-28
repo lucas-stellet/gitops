@@ -5,7 +5,7 @@ const port = 3000;
 const server = http.createServer((req, res) => {
   res.statusCode = 200;
   res.setHeader('Content-Type', 'application/json');
-  res.write(JSON.stringify({msg: `Hello ${process.env.MY_NAME} from 2021!`}));
+  res.write(JSON.stringify({msg: `Hello!`}));
   res.end()
 });
 

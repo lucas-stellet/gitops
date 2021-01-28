@@ -1,0 +1,1 @@
+kubectl port-forward service/goserver-service 3000:3000
