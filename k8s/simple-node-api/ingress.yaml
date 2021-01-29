@@ -1,0 +1,29 @@
+# 172.18.0.3:30526
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: api
+  namespace: api
+  annotations:
+    acme.kubernetes.io/enable: "true"
+    acme.kubernetes.io/dns: "dns_gd"
+    kubernetes.io/ingress.class: nginx
+spec: 
+  tls:
+  - hosts:
+    - "api.lustepe.xyz"
+    secretName: api-tls
+  rules:
+    - host: "api.lustepe.xyz"
+      http: 
+        paths: 
+          - pathType: Prefix
+            path: /
+            backend: 
+              serviceName: node-api
+              servicePort: 8085
+          - pathType: Prefix
+            path: /go
+            backend: 
+              serviceName: go-api
+              servicePort: 8086

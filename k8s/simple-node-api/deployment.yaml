@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-api
+  namespace: api
+spec:
+  selector:
+    matchLabels:
+      app: node-api
+  template:
+    metadata:
+      labels:
+        app: node-api
+    spec:
+      containers:
+      - name: node-api
+        image: lustepe/simple-node-api
+        env: 
+          - name: PORT
+            value: "8080"
+        ports:
+          - name: "http"
+            containerPort: 8080
+        resources:
+            requests:
+              cpu: 10m
+              memory: 80M
+            limits:
+              cpu: 20m
+              memory: 160M

@@ -1,0 +1,10 @@
+# schedule a Kubernetes Job twice a day, certificate is renewed only if it is going to expire soon
+schedule: "0 2,14 * * *"
+
+# add all necessary environment variables for acme.sh dns validation
+# see https://github.com/Neilpang/acme.sh/wiki/dnsapi
+env:
+- name: GD_Key
+  value: eoX5FNxmdQut_3tq3mnyQzfHQeWbh4dszam
+- name: GD_Secret
+  value: Tdy4mwPEoSfuSLszfhYm8r
