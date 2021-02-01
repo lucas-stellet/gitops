@@ -1,0 +1,18 @@
+# INSTALL CERT-MANAGER
+
+kubectl apply -f https://github.com/jetstack/cert-manager/releases/download/v1.1.0/cert-manager.yaml
+
+# GODADDY CERT-MANAGER WEBHOOK 
+
+Instructions: https://github.com/neoGeneva/cert-manager-webhook-godaddy/blob/master/README.md
+
+# NGINX INGRESS
+
+helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+
+helm repo update
+
+helm install ingress-nginx ingress-nginx/ingress-nginx
+
+# CREATE CERT-MANAGER CLUSTER-ISSUER AND CERTIFICATE OBJECTS
+

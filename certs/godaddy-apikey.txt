@@ -2,3 +2,6 @@ Key
   eoX5FNxmdQut_3tq3mnyQzfHQeWbh4dszam
 Secret
   Tdy4mwPEoSfuSLszfhYm8r
+
+  kubectl --namespace cert-manager create secret generic \
+    godaddy-api-key --from-literal=key='eoX5FNxmdQut_3tq3mnyQzfHQeWbh4dszam'

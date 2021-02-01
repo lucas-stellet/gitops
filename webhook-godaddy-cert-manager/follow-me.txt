@@ -1,0 +1,4 @@
+helm install --namespace cert-manager cert-manager-webhook-godaddy godaddy-webhook/cert-manager-webhook-godaddy
+
+kubectl --namespace cert-manager create secret generic \
+    godaddy-api-key --from-literal=key='<GODADDY_AUTH_KEY>'
