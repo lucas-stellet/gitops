@@ -1,0 +1,3 @@
+kubectl annotate secrets hello-tls kubed.appscode.com/sync="app=kubed" -n h-one 
+
+kubectl annotate secrets hello-tls-conf kubed.appscode.com/sync="app=kubed" -n h-one

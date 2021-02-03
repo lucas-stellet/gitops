@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-two
+  namespace: h-two
+spec:
+  selector:
+    matchLabels:
+      app: hello-two
+  template:
+    metadata:
+      labels:
+        app: hello-two
+    spec:
+      containers:
+      - name: hello-two
+        image: lustepe/simple-server-golang:v1
+        env: 
+          - name: MY_NAME
+            value: "Noah"
+        ports:
+          - name: "http"
+            containerPort: 3000
+        resources:
+            requests:
+              cpu: 10m
+              memory: 80M
+            limits:
+              cpu: 20m
+              memory: 160M

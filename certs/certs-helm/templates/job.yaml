@@ -1,0 +1,35 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: {{ template "helper.fullname" . }}
+  labels:
+    app: {{ template "helper.name" . }}
+    chart: {{ template "helper.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  backoffLimit: {{ .Values.backoffLimit }}
+  activeDeadlineSeconds: {{ .Values.activeDeadlineSeconds }}
+  ttlSecondsAfterFinished: {{ .Values.ttlSecondsAfterFinished }}
+  template:
+    metadata:
+      labels:
+        app: {{ template "helper.name" . }}
+        release: {{ .Release.Name }}
+    spec:
+      serviceAccountName: {{ template "helper.fullname" . }}
+      containers:
+      - name: {{ template "helper.fullname" . }}
+        image: {{ template "helper.image" . }}
+        imagePullPolicy: Always
+        env:
+        - name: ACME_MANAGE_ALL_NAMESPACES
+          value: {{ .Values.manageAllNamespaces | quote }}
+        - name: ACME_DEMO_ENABLED
+          value: {{ .Values.demo.enabled | quote }}
+        - name: ACME_DEBUG
+          value: {{ .Values.debug | quote }}
+        {{- with .Values.env }}
+{{ toYaml . | indent 8 }}
+        {{- end }}
+      restartPolicy: Never

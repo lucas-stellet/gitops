@@ -1,0 +1,41 @@
+# Default values.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+service:
+  type: None
+
+image:
+  registry: mathnao
+  repository: certs
+  tag: 1.1.7
+
+schedule: "0 0,12 * * *"
+
+backoffLimit: 1
+
+debug: false
+
+activeDeadlineSeconds: 600
+
+ttlSecondsAfterFinished: 120
+
+successfulJobsHistoryLimit: 3
+
+failedJobsHistoryLimit: 1
+
+manageAllNamespaces: false
+
+env: []
+
+demo:
+  enabled: false
+  image: mathnao/light-test-server
+  service:
+    type: ClusterIP
+    port: 8080
+  secretName: demo-ingress-cert
+  hosts:
+  - "example.com"
+  ingress:
+    annotations: {}

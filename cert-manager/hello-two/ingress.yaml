@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: hello-two
+  namespace: h-two
+  annotations:
+    kubernetes.io/ingress.class: nginx
+spec: 
+  tls:
+  - hosts:
+    - "*.lustepe.xyz"
+    secretName: hello-tls
+  rules:
+    - host: hellotwo.lustepe.xyz
+      http: 
+        paths: 
+          - pathType: Prefix
+            path: /
+            backend: 
+              serviceName: hello-two
+              servicePort: 81

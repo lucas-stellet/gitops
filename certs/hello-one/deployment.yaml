@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-one
+  namespace: h-one
+spec:
+  selector:
+    matchLabels:
+      app: hello-one
+  template:
+    metadata:
+      labels:
+        app: hello-one
+    spec:
+      containers:
+      - name: hello-one
+        image: lustepe/simple-server-golang:v1
+        env: 
+          - name: MY_NAME
+            value: "Lucas"
+        ports:
+          - name: "http"
+            containerPort: 3000
+        resources:
+            requests:
+              cpu: 10m
+              memory: 80M
+            limits:
+              cpu: 20m
+              memory: 160M

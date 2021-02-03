@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-zero
+  namespace: h-zero
+spec:
+  selector:
+    matchLabels:
+      app: hello-zero
+  template:
+    metadata:
+      labels:
+        app: hello-zero
+    spec:
+      containers:
+      - name: hello-zero
+        image: lustepe/simple-server-golang:v1
+        env: 
+          - name: MY_NAME
+            value: "Zero"
+        ports:
+          - name: "http"
+            containerPort: 3000
+        resources:
+            requests:
+              cpu: 10m
+              memory: 80M
+            limits:
+              cpu: 20m
+              memory: 160M

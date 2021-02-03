@@ -8,3 +8,10 @@ env:
   value: eoX5FNxmdQut_3tq3mnyQzfHQeWbh4dszam
 - name: GD_Secret
   value: Tdy4mwPEoSfuSLszfhYm8r
+
+manageAllNamespaces: true
+
+image:
+  registry: lustepe
+  repository: certs
+  tag: latest

@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service 
+metadata:
+  name: hello-two
+  namespace: h-two
+spec: # politicas de acesso ao pod
+  type: ClusterIP
+  selector:
+    app: hello-two
+  ports:
+    - protocol:  TCP
+      port: 81
+      targetPort: "http"
