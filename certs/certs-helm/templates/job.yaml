@@ -18,10 +18,11 @@ spec:
         release: {{ .Release.Name }}
     spec:
       serviceAccountName: {{ template "helper.fullname" . }}
+      imagePullSecrets:
+        - name: dockerhub
       containers:
       - name: {{ template "helper.fullname" . }}
         image: {{ template "helper.image" . }}
-        imagePullPolicy: Always
         env:
         - name: ACME_MANAGE_ALL_NAMESPACES
           value: {{ .Values.manageAllNamespaces | quote }}
@@ -33,3 +34,4 @@ spec:
 {{ toYaml . | indent 8 }}
         {{- end }}
       restartPolicy: Never
+      

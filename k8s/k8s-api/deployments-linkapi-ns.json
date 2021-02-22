@@ -1,0 +1,3528 @@
+[
+  {
+    "name": "api-agenda",
+    "namespace": "linkapi",
+    "spec": {
+      "replicas": 1,
+      "containers": [
+        {
+          "name": "api-agenda",
+          "envFrom": [
+            {
+              "configMapRef": {
+                "name": "api-agenda"
+              }
+            },
+            {
+              "secretRef": {
+                "name": "api-agenda"
+              }
+            }
+          ],
+          "image": "gcr.io/bionic-spot-253222/api-agenda-master:10679",
+          "ports": [
+            {
+              "containerPort": 80,
+              "protocol": "TCP"
+            }
+          ],
+          "resources": {
+            "limits": {
+              "memory": "55Mi"
+            },
+            "requests": {
+              "memory": "55Mi"
+            }
+          }
+        }
+      ]
+    },
+    "status": {
+      "conditions": [
+        {
+          "lastTransitionTime": "2021-02-12T00:25:47.000Z",
+          "lastUpdateTime": "2021-02-12T00:25:47.000Z",
+          "message": "Deployment has minimum availability.",
+          "reason": "MinimumReplicasAvailable",
+          "status": "True",
+          "type": "Available"
+        }
+      ]
+    }
+  },
+  {
+    "name": "api-agenda-crontab",
+    "namespace": "linkapi",
+    "spec": {
+      "replicas": 1,
+      "containers": [
+        {
+          "name": "api-agenda-crontab",
+          "envFrom": [
+            {
+              "configMapRef": {
+                "name": "api-agenda-crontab"
+              }
+            },
+            {
+              "secretRef": {
+                "name": "api-agenda-crontab"
+              }
+            }
+          ],
+          "image": "gcr.io/bionic-spot-253222/api-agenda-crontab-master:10682",
+          "ports": [
+            {
+              "containerPort": 80,
+              "protocol": "TCP"
+            }
+          ],
+          "resources": {
+            "limits": {
+              "memory": "100Mi"
+            },
+            "requests": {
+              "memory": "100Mi"
+            }
+          }
+        }
+      ]
+    },
+    "status": {
+      "conditions": [
+        {
+          "lastTransitionTime": "2021-01-05T12:32:46.000Z",
+          "lastUpdateTime": "2021-01-05T12:32:46.000Z",
+          "message": "Deployment has minimum availability.",
+          "reason": "MinimumReplicasAvailable",
+          "status": "True",
+          "type": "Available"
+        }
+      ]
+    }
+  },
+  {
+    "name": "api-automation-metrics-v5",
+    "namespace": "linkapi",
+    "spec": {
+      "replicas": 2,
+      "containers": [
+        {
+          "name": "api-automation-metrics",
+          "envFrom": [
+            {
+              "configMapRef": {
+                "name": "api-automation-metrics-v5"
+              }
+            },
+            {
+              "secretRef": {
+                "name": "api-automation-metrics-v5"
+              }
+            }
+          ],
+          "image": "gcr.io/bionic-spot-253222/api-automation-metrics:build-10921",
+          "ports": [
+            {
+              "containerPort": 80,
+              "protocol": "TCP"
+            }
+          ],
+          "resources": {
+            "limits": {
+              "memory": "80Mi"
+            },
+            "requests": {
+              "memory": "50Mi"
+            }
+          }
+        }
+      ]
+    },
+    "status": {
+      "conditions": [
+        {
+          "lastTransitionTime": "2021-02-11T20:12:34.000Z",
+          "lastUpdateTime": "2021-02-11T20:12:34.000Z",
+          "message": "Deployment has minimum availability.",
+          "reason": "MinimumReplicasAvailable",
+          "status": "True",
+          "type": "Available"
+        }
+      ]
+    }
+  },
+  {
+    "name": "api-automation-new-metrics",
+    "namespace": "linkapi",
+    "spec": {
+      "replicas": 7,
+      "containers": [
+        {
+          "name": "api-automation-new-metrics",
+          "envFrom": [
+            {
+              "configMapRef": {
+                "name": "api-automation-metrics"
+              }
+            },
+            {
+              "secretRef": {
+                "name": "api-automation-metrics"
+              }
+            }
+          ],
+          "image": "gcr.io/bionic-spot-253222/api-automation-metrics:build-10921",
+          "ports": [
+            {
+              "containerPort": 80,
+              "protocol": "TCP"
+            }
+          ],
+          "resources": {
+            "limits": {
+              "memory": "80Mi"
+            },
+            "requests": {
+              "memory": "50Mi"
+            }
+          }
+        }
+      ]
+    },
+    "status": {
+      "conditions": [
+        {
+          "lastTransitionTime": "2021-02-18T20:39:55.000Z",
+          "lastUpdateTime": "2021-02-18T20:39:55.000Z",
+          "message": "Deployment has minimum availability.",
+          "reason": "MinimumReplicasAvailable",
+          "status": "True",
+          "type": "Available"
+        }
+      ]
+    }
+  },
+  {
+    "name": "api-automation-old-metrics",
+    "namespace": "linkapi",
+    "spec": {
+      "replicas": 8,
+      "containers": [
+        {
+          "name": "api-automation-old-metrics",
+          "envFrom": [
+            {
+              "configMapRef": {
+                "name": "api-automation-metrics"
+              }
+            },
+            {
+              "secretRef": {
+                "name": "api-automation-metrics"
+              }
+            }
+          ],
+          "image": "gcr.io/bionic-spot-253222/api-automation-metrics:build-10921",
+          "ports": [
+            {
+              "containerPort": 80,
+              "protocol": "TCP"
+            }
+          ],
+          "resources": {
+            "limits": {
+              "memory": "80Mi"
+            },
+            "requests": {
+              "memory": "50Mi"
+            }
+          }
+        }
+      ]
+    },
+    "status": {
+      "conditions": [
+        {
+          "lastTransitionTime": "2021-02-17T15:34:05.000Z",
+          "lastUpdateTime": "2021-02-17T15:34:05.000Z",
+          "message": "Deployment has minimum availability.",
+          "reason": "MinimumReplicasAvailable",
+          "status": "True",
+          "type": "Available"
+        }
+      ]
+    }
+  },
+  {
+    "name": "api-bancoob-giftcard",
+    "namespace": "linkapi",
+    "spec": {
+      "replicas": 1,
+      "containers": [
+        {
+          "name": "api-bancoob-giftcard",
+          "image": "gcr.io/bionic-spot-253222/api-bancoob-giftcard:10144",
+          "ports": [
+            {
+              "containerPort": 8001,
+              "protocol": "TCP"
+            }
+          ],
+          "resources": {
+            "limits": {
+              "memory": "100Mi"
+            },
+            "requests": {
+              "memory": "100Mi"
+            }
+          }
+        }
+      ]
+    },
+    "status": {
+      "conditions": [
+        {
+          "lastTransitionTime": "2021-02-15T13:50:52.000Z",
+          "lastUpdateTime": "2021-02-15T13:50:52.000Z",
+          "message": "Deployment has minimum availability.",
+          "reason": "MinimumReplicasAvailable",
+          "status": "True",
+          "type": "Available"
+        }
+      ]
+    }
+  },
+  {
+    "name": "api-colgate",
+    "namespace": "linkapi",
+    "spec": {
+      "replicas": 1,
+      "containers": [
+        {
+          "name": "api-colgate",
+          "image": "gcr.io/bionic-spot-253222/api-colgate-master:9365",
+          "ports": [
+            {
+              "containerPort": 80,
+              "protocol": "TCP"
+            }
+          ],
+          "resources": {
+            "limits": {
+              "memory": "90Mi"
+            },
+            "requests": {
+              "memory": "60Mi"
+            }
+          }
+        }
+      ]
+    },
+    "status": {
+      "conditions": [
+        {
+          "lastTransitionTime": "2020-12-13T17:50:33.000Z",
+          "lastUpdateTime": "2020-12-13T17:50:33.000Z",
+          "message": "Deployment has minimum availability.",
+          "reason": "MinimumReplicasAvailable",
+          "status": "True",
+          "type": "Available"
+        }
+      ]
+    }
+  },
+  {
+    "name": "api-colombo-categories-v4",
+    "namespace": "linkapi",
+    "spec": {
+      "replicas": 1,
+      "containers": [
+        {
+          "name": "api-colombo-categories-v4",
+          "image": "gcr.io/bionic-spot-253222/api-colombo-categories-v5-master:10847",
+          "ports": [
+            {
+              "containerPort": 80,
+              "protocol": "TCP"
+            }
+          ],
+          "resources": {
+            "limits": {
+              "memory": "80Mi"
+            },
+            "requests": {
+              "memory": "50Mi"
+            }
+          }
+        }
+      ]
+    },
+    "status": {
+      "conditions": [
+        {
+          "lastTransitionTime": "2021-02-19T19:45:10.000Z",
+          "lastUpdateTime": "2021-02-19T19:45:10.000Z",
+          "message": "Deployment has minimum availability.",
+          "reason": "MinimumReplicasAvailable",
+          "status": "True",
+          "type": "Available"
+        }
+      ]
+    }
+  },
+  {
+    "name": "api-colombo-categories-v5",
+    "namespace": "linkapi",
+    "spec": {
+      "replicas": 1,
+      "containers": [
+        {
+          "name": "api-colombo-categories-v5",
+          "image": "gcr.io/bionic-spot-253222/api-colombo-categories-v5-master:10847",
+          "ports": [
+            {
+              "containerPort": 80,
+              "protocol": "TCP"
+            }
+          ],
+          "resources": {
+            "limits": {
+              "memory": "80Mi"
+            },
+            "requests": {
+              "memory": "50Mi"
+            }
+          }
+        }
+      ]
+    },
+    "status": {
+      "conditions": [
+        {
+          "lastTransitionTime": "2021-02-17T08:57:40.000Z",
+          "lastUpdateTime": "2021-02-17T08:57:40.000Z",
+          "message": "Deployment has minimum availability.",
+          "reason": "MinimumReplicasAvailable",
+          "status": "True",
+          "type": "Available"
+        }
+      ]
+    }
+  },
+  {
+    "name": "api-console",
+    "namespace": "linkapi",
+    "spec": {
+      "replicas": 1,
+      "containers": [
+        {
+          "name": "api-console",
+          "image": "gcr.io/bionic-spot-253222/api-console-release:7180",
+          "ports": [
+            {
+              "containerPort": 80,
+              "protocol": "TCP"
+            }
+          ],
+          "resources": {
+            "limits": {
+              "memory": "500Mi"
+            },
+            "requests": {
+              "memory": "500Mi"
+            }
+          }
+        }
+      ]
+    },
+    "status": {
+      "conditions": [
+        {
+          "lastTransitionTime": "2021-02-11T03:34:12.000Z",
+          "lastUpdateTime": "2021-02-11T03:34:12.000Z",
+          "message": "Deployment has minimum availability.",
+          "reason": "MinimumReplicasAvailable",
+          "status": "True",
+          "type": "Available"
+        }
+      ]
+    }
+  },
+  {
+    "name": "api-coopera-pci-sandbox",
+    "namespace": "linkapi",
+    "spec": {
+      "replicas": 1,
+      "containers": [
+        {
+          "name": "api-coopera-pci-sandbox",
+          "envFrom": [
+            {
+              "configMapRef": {
+                "name": "api-coopera-pci-sandbox"
+              }
+            },
+            {
+              "secretRef": {
+                "name": "api-coopera-pci-sandbox"
+              }
+            }
+          ],
+          "image": "gcr.io/bionic-spot-253222/api-coopera-pci-sandbox-master:10551",
+          "ports": [
+            {
+              "containerPort": 80,
+              "protocol": "TCP"
+            }
+          ],
+          "resources": {
+            "limits": {
+              "memory": "250Mi"
+            },
+            "requests": {
+              "memory": "250Mi"
+            }
+          }
+        }
+      ]
+    },
+    "status": {
+      "conditions": [
+        {
+          "lastTransitionTime": "2021-02-18T11:50:49.000Z",
+          "lastUpdateTime": "2021-02-18T11:50:49.000Z",
+          "message": "Deployment has minimum availability.",
+          "reason": "MinimumReplicasAvailable",
+          "status": "True",
+          "type": "Available"
+        }
+      ]
+    }
+  },
+  {
+    "name": "api-distribution-master",
+    "namespace": "linkapi",
+    "spec": {
+      "replicas": 2,
+      "containers": [
+        {
+          "name": "api-distribution-master",
+          "image": "gcr.io/bionic-spot-253222/api-distribution-master:10805",
+          "ports": [
+            {
+              "containerPort": 80,
+              "protocol": "TCP"
+            }
+          ],
+          "resources": {
+            "limits": {
+              "memory": "200Mi"
+            },
+            "requests": {
+              "memory": "100Mi"
+            }
+          }
+        }
+      ]
+    },
+    "status": {
+      "conditions": [
+        {
+          "lastTransitionTime": "2021-01-13T17:51:12.000Z",
+          "lastUpdateTime": "2021-01-13T17:51:12.000Z",
+          "message": "Deployment has minimum availability.",
+          "reason": "MinimumReplicasAvailable",
+          "status": "True",
+          "type": "Available"
+        }
+      ]
+    }
+  },
+  {
+    "name": "api-distribution-v5-main",
+    "namespace": "linkapi",
+    "spec": {
+      "replicas": 1,
+      "containers": [
+        {
+          "name": "api-distribution-v5-main",
+          "image": "gcr.io/bionic-spot-253222/api-distribution-v5-main:10515",
+          "ports": [
+            {
+              "containerPort": 80,
+              "protocol": "TCP"
+            }
+          ],
+          "resources": {
+            "limits": {
+              "memory": "800Mi"
+            },
+            "requests": {
+              "memory": "800Mi"
+            }
+          }
+        }
+      ]
+    },
+    "status": {
+      "conditions": [
+        {
+          "lastTransitionTime": "2020-12-09T23:47:28.000Z",
+          "lastUpdateTime": "2020-12-09T23:47:28.000Z",
+          "message": "Deployment has minimum availability.",
+          "reason": "MinimumReplicasAvailable",
+          "status": "True",
+          "type": "Available"
+        }
+      ]
+    }
+  },
+  {
+    "name": "api-execution-homolog",
+    "namespace": "linkapi",
+    "spec": {
+      "replicas": 3,
+      "containers": [
+        {
+          "name": "api-execution-homolog",
+          "envFrom": [
+            {
+              "configMapRef": {
+                "name": "api-execution-env"
+              }
+            }
+          ],
+          "image": "gcr.io/bionic-spot-253222/api-execution-homolog:10890",
+          "ports": [
+            {
+              "containerPort": 80,
+              "protocol": "TCP"
+            }
+          ],
+          "resources": {
+            "limits": {
+              "memory": "800Mi"
+            },
+            "requests": {
+              "memory": "800Mi"
+            }
+          }
+        }
+      ]
+    },
+    "status": {
+      "conditions": [
+        {
+          "lastTransitionTime": "2021-02-12T00:28:57.000Z",
+          "lastUpdateTime": "2021-02-12T00:28:57.000Z",
+          "message": "Deployment has minimum availability.",
+          "reason": "MinimumReplicasAvailable",
+          "status": "True",
+          "type": "Available"
+        }
+      ]
+    }
+  },
+  {
+    "name": "api-execution-master",
+    "namespace": "linkapi",
+    "spec": {
+      "replicas": 1,
+      "containers": [
+        {
+          "name": "api-execution-master",
+          "envFrom": [
+            {
+              "configMapRef": {
+                "name": "api-execution-env-master"
+              }
+            }
+          ],
+          "image": "gcr.io/bionic-spot-253222/api-execution:build-10889",
+          "ports": [
+            {
+              "containerPort": 80,
+              "protocol": "TCP"
+            }
+          ],
+          "resources": {
+            "limits": {
+              "memory": "800Mi"
+            },
+            "requests": {
+              "memory": "800Mi"
+            }
+          }
+        }
+      ]
+    },
+    "status": {
+      "conditions": [
+        {
+          "lastTransitionTime": "2021-02-08T13:49:34.000Z",
+          "lastUpdateTime": "2021-02-08T13:49:34.000Z",
+          "message": "Deployment has minimum availability.",
+          "reason": "MinimumReplicasAvailable",
+          "status": "True",
+          "type": "Available"
+        }
+      ]
+    }
+  },
+  {
+    "name": "api-finalize-trigger",
+    "namespace": "linkapi",
+    "spec": {
+      "replicas": 1,
+      "containers": [
+        {
+          "name": "api-finalize-trigger",
+          "image": "gcr.io/bionic-spot-253222/api-finalize-trigger-master:10949",
+          "ports": [
+            {
+              "containerPort": 80,
+              "protocol": "TCP"
+            }
+          ],
+          "resources": {
+            "limits": {
+              "memory": "120Mi"
+            },
+            "requests": {
+              "memory": "70Mi"
+            }
+          }
+        }
+      ]
+    },
+    "status": {
+      "conditions": [
+        {
+          "lastTransitionTime": "2021-02-11T03:34:15.000Z",
+          "lastUpdateTime": "2021-02-11T03:34:15.000Z",
+          "message": "Deployment has minimum availability.",
+          "reason": "MinimumReplicasAvailable",
+          "status": "True",
+          "type": "Available"
+        }
+      ]
+    }
+  },
+  {
+    "name": "api-finalize-trigger-v1",
+    "namespace": "linkapi",
+    "spec": {
+      "replicas": 2,
+      "containers": [
+        {
+          "name": "api-finalize-trigger-v1",
+          "envFrom": [
+            {
+              "configMapRef": {
+                "name": "api-finalize-trigger-v1"
+              }
+            },
+            {
+              "secretRef": {
+                "name": "api-finalize-trigger-v1"
+              }
+            }
+          ],
+          "image": "gcr.io/bionic-spot-253222/api-finalize-trigger-v1-master:9366",
+          "ports": [
+            {
+              "containerPort": 80,
+              "protocol": "TCP"
+            }
+          ],
+          "resources": {
+            "limits": {
+              "memory": "100Mi"
+            },
+            "requests": {
+              "memory": "60Mi"
+            }
+          }
+        }
+      ]
+    },
+    "status": {
+      "conditions": [
+        {
+          "lastTransitionTime": "2021-01-12T18:49:03.000Z",
+          "lastUpdateTime": "2021-01-12T18:49:03.000Z",
+          "message": "Deployment has minimum availability.",
+          "reason": "MinimumReplicasAvailable",
+          "status": "True",
+          "type": "Available"
+        }
+      ]
+    }
+  },
+  {
+    "name": "api-gateway-azure-metrics",
+    "namespace": "linkapi",
+    "spec": {
+      "replicas": 1,
+      "containers": [
+        {
+          "name": "api-gateway-azure-metrics",
+          "envFrom": [
+            {
+              "configMapRef": {
+                "name": "api-gateway-metrics"
+              }
+            },
+            {
+              "secretRef": {
+                "name": "api-gateway-metrics"
+              }
+            }
+          ],
+          "image": "gcr.io/bionic-spot-253222/api-gateway-metrics:build-10777",
+          "ports": [
+            {
+              "containerPort": 80,
+              "protocol": "TCP"
+            }
+          ],
+          "resources": {
+            "limits": {
+              "memory": "500Mi"
+            },
+            "requests": {
+              "memory": "500Mi"
+            }
+          }
+        }
+      ]
+    },
+    "status": {
+      "conditions": [
+        {
+          "lastTransitionTime": "2021-02-11T19:47:24.000Z",
+          "lastUpdateTime": "2021-02-11T19:47:24.000Z",
+          "message": "Deployment has minimum availability.",
+          "reason": "MinimumReplicasAvailable",
+          "status": "True",
+          "type": "Available"
+        }
+      ]
+    }
+  },
+  {
+    "name": "api-gateway-logs",
+    "namespace": "linkapi",
+    "spec": {
+      "replicas": 0,
+      "containers": [
+        {
+          "name": "api-gateway-logs",
+          "envFrom": [
+            {
+              "configMapRef": {
+                "name": "api-gateway-logs"
+              }
+            },
+            {
+              "secretRef": {
+                "name": "api-gateway-logs"
+              }
+            }
+          ],
+          "image": "gcr.io/bionic-spot-253222/api-gateway-logs-master:10214",
+          "ports": [
+            {
+              "containerPort": 80,
+              "protocol": "TCP"
+            }
+          ],
+          "resources": {
+            "limits": {
+              "memory": "500Mi"
+            },
+            "requests": {
+              "memory": "500Mi"
+            }
+          }
+        }
+      ]
+    },
+    "status": {
+      "conditions": [
+        {
+          "lastTransitionTime": "2020-12-12T19:28:29.000Z",
+          "lastUpdateTime": "2020-12-12T19:28:29.000Z",
+          "message": "Deployment has minimum availability.",
+          "reason": "MinimumReplicasAvailable",
+          "status": "True",
+          "type": "Available"
+        }
+      ]
+    }
+  },
+  {
+    "name": "api-gateway-low-code",
+    "namespace": "linkapi",
+    "spec": {
+      "replicas": 2,
+      "containers": [
+        {
+          "name": "api-gateway",
+          "envFrom": [
+            {
+              "configMapRef": {
+                "name": "api-gateway-low-code-env"
+              }
+            }
+          ],
+          "image": "gcr.io/bionic-spot-253222/api-gateway-v2-master:11046",
+          "ports": [
+            {
+              "containerPort": 3005,
+              "protocol": "TCP"
+            }
+          ],
+          "resources": {
+            "limits": {
+              "memory": "300Mi"
+            },
+            "requests": {
+              "memory": "170Mi"
+            }
+          }
+        }
+      ]
+    },
+    "status": {
+      "conditions": [
+        {
+          "lastTransitionTime": "2021-02-19T01:28:12.000Z",
+          "lastUpdateTime": "2021-02-19T01:28:12.000Z",
+          "message": "Deployment has minimum availability.",
+          "reason": "MinimumReplicasAvailable",
+          "status": "True",
+          "type": "Available"
+        }
+      ]
+    }
+  },
+  {
+    "name": "api-gateway-mambo",
+    "namespace": "linkapi",
+    "spec": {
+      "replicas": 3,
+      "containers": [
+        {
+          "name": "api-gateway-mambo",
+          "image": "gcr.io/bionic-spot-253222/api-mambo-gateway:9686",
+          "ports": [
+            {
+              "containerPort": 3500,
+              "protocol": "TCP"
+            }
+          ],
+          "resources": {
+            "limits": {
+              "memory": "150Mi"
+            },
+            "requests": {
+              "memory": "100Mi"
+            }
+          }
+        }
+      ]
+    },
+    "status": {
+      "conditions": [
+        {
+          "lastTransitionTime": "2020-12-13T17:50:22.000Z",
+          "lastUpdateTime": "2020-12-13T17:50:22.000Z",
+          "message": "Deployment has minimum availability.",
+          "reason": "MinimumReplicasAvailable",
+          "status": "True",
+          "type": "Available"
+        }
+      ]
+    }
+  },
+  {
+    "name": "api-gateway-metrics",
+    "namespace": "linkapi",
+    "spec": {
+      "replicas": 3,
+      "containers": [
+        {
+          "name": "api-gateway-metrics",
+          "envFrom": [
+            {
+              "configMapRef": {
+                "name": "api-gateway-metrics"
+              }
+            },
+            {
+              "secretRef": {
+                "name": "api-gateway-metrics"
+              }
+            }
+          ],
+          "image": "gcr.io/bionic-spot-253222/api-gateway-metrics:build-10777",
+          "ports": [
+            {
+              "containerPort": 80,
+              "protocol": "TCP"
+            }
+          ],
+          "resources": {
+            "limits": {
+              "memory": "500Mi"
+            },
+            "requests": {
+              "memory": "500Mi"
+            }
+          }
+        }
+      ]
+    },
+    "status": {
+      "conditions": [
+        {
+          "lastTransitionTime": "2021-02-12T18:50:26.000Z",
+          "lastUpdateTime": "2021-02-12T18:50:26.000Z",
+          "message": "Deployment has minimum availability.",
+          "reason": "MinimumReplicasAvailable",
+          "status": "True",
+          "type": "Available"
+        }
+      ]
+    }
+  },
+  {
+    "name": "api-gateway-metrics-v5",
+    "namespace": "linkapi",
+    "spec": {
+      "replicas": 4,
+      "containers": [
+        {
+          "name": "api-gateway-metrics",
+          "envFrom": [
+            {
+              "configMapRef": {
+                "name": "api-gateway-metrics-v5"
+              }
+            },
+            {
+              "secretRef": {
+                "name": "api-gateway-metrics"
+              }
+            }
+          ],
+          "image": "gcr.io/bionic-spot-253222/api-gateway-metrics:build-10777",
+          "ports": [
+            {
+              "containerPort": 80,
+              "protocol": "TCP"
+            }
+          ],
+          "resources": {
+            "limits": {
+              "memory": "500Mi"
+            },
+            "requests": {
+              "memory": "500Mi"
+            }
+          }
+        }
+      ]
+    },
+    "status": {
+      "conditions": [
+        {
+          "lastTransitionTime": "2021-02-11T20:53:39.000Z",
+          "lastUpdateTime": "2021-02-11T20:53:39.000Z",
+          "message": "Deployment has minimum availability.",
+          "reason": "MinimumReplicasAvailable",
+          "status": "True",
+          "type": "Available"
+        }
+      ]
+    }
+  },
+  {
+    "name": "api-gateway-new-metrics",
+    "namespace": "linkapi",
+    "spec": {
+      "replicas": 8,
+      "containers": [
+        {
+          "name": "api-gateway-new-metrics",
+          "envFrom": [
+            {
+              "configMapRef": {
+                "name": "api-gateway-metrics"
+              }
+            },
+            {
+              "secretRef": {
+                "name": "api-gateway-metrics"
+              }
+            }
+          ],
+          "image": "gcr.io/bionic-spot-253222/api-gateway-metrics:build-10777",
+          "ports": [
+            {
+              "containerPort": 80,
+              "protocol": "TCP"
+            }
+          ],
+          "resources": {
+            "limits": {
+              "memory": "500Mi"
+            },
+            "requests": {
+              "memory": "500Mi"
+            }
+          }
+        }
+      ]
+    },
+    "status": {
+      "conditions": [
+        {
+          "lastTransitionTime": "2021-02-11T22:31:29.000Z",
+          "lastUpdateTime": "2021-02-11T22:31:29.000Z",
+          "message": "Deployment has minimum availability.",
+          "reason": "MinimumReplicasAvailable",
+          "status": "True",
+          "type": "Available"
+        }
+      ]
+    }
+  },
+  {
+    "name": "api-gateway-stand-alone",
+    "namespace": "linkapi",
+    "spec": {
+      "replicas": 5,
+      "containers": [
+        {
+          "name": "api-gateway-stand-alone",
+          "image": "gcr.io/bionic-spot-253222/api-gateway-stand-alone:10794",
+          "ports": [
+            {
+              "containerPort": 4009,
+              "protocol": "TCP"
+            }
+          ],
+          "resources": {
+            "limits": {
+              "memory": "300Mi"
+            },
+            "requests": {
+              "memory": "300Mi"
+            }
+          }
+        }
+      ]
+    },
+    "status": {
+      "conditions": [
+        {
+          "lastTransitionTime": "2021-01-19T18:06:11.000Z",
+          "lastUpdateTime": "2021-01-19T18:06:11.000Z",
+          "message": "Deployment has minimum availability.",
+          "reason": "MinimumReplicasAvailable",
+          "status": "True",
+          "type": "Available"
+        }
+      ]
+    }
+  },
+  {
+    "name": "api-gateway-v1",
+    "namespace": "linkapi",
+    "spec": {
+      "replicas": 1,
+      "containers": [
+        {
+          "name": "api-gateway",
+          "envFrom": [
+            {
+              "configMapRef": {
+                "name": "api-gateway-v1-env"
+              }
+            }
+          ],
+          "image": "gcr.io/bionic-spot-253222/api-gateway:build-11049",
+          "ports": [
+            {
+              "containerPort": 3005,
+              "protocol": "TCP"
+            }
+          ],
+          "resources": {
+            "limits": {
+              "memory": "800Mi"
+            },
+            "requests": {
+              "memory": "600Mi"
+            }
+          }
+        }
+      ]
+    },
+    "status": {
+      "conditions": [
+        {
+          "lastTransitionTime": "2021-02-18T19:29:52.000Z",
+          "lastUpdateTime": "2021-02-18T19:29:52.000Z",
+          "message": "Deployment has minimum availability.",
+          "reason": "MinimumReplicasAvailable",
+          "status": "True",
+          "type": "Available"
+        }
+      ]
+    }
+  },
+  {
+    "name": "api-gateway-v2",
+    "namespace": "linkapi",
+    "spec": {
+      "replicas": 3,
+      "containers": [
+        {
+          "name": "api-gateway",
+          "envFrom": [
+            {
+              "configMapRef": {
+                "name": "api-gateway-env"
+              }
+            }
+          ],
+          "image": "gcr.io/bionic-spot-253222/api-gateway-v2:build-10971",
+          "ports": [
+            {
+              "containerPort": 3005,
+              "protocol": "TCP"
+            }
+          ],
+          "resources": {
+            "limits": {
+              "memory": "800Mi"
+            },
+            "requests": {
+              "memory": "800Mi"
+            }
+          }
+        }
+      ]
+    },
+    "status": {
+      "conditions": [
+        {
+          "lastTransitionTime": "2021-02-18T16:57:58.000Z",
+          "lastUpdateTime": "2021-02-18T16:57:58.000Z",
+          "message": "Deployment has minimum availability.",
+          "reason": "MinimumReplicasAvailable",
+          "status": "True",
+          "type": "Available"
+        }
+      ]
+    }
+  },
+  {
+    "name": "api-get-integrations",
+    "namespace": "linkapi",
+    "spec": {
+      "replicas": 1,
+      "containers": [
+        {
+          "name": "api-get-integrations",
+          "image": "gcr.io/bionic-spot-253222/api-get-integrations:build-10681",
+          "ports": [
+            {
+              "containerPort": 80,
+              "protocol": "TCP"
+            }
+          ],
+          "resources": {
+            "limits": {
+              "memory": "50Mi"
+            },
+            "requests": {
+              "memory": "50Mi"
+            }
+          }
+        }
+      ]
+    },
+    "status": {
+      "conditions": [
+        {
+          "lastTransitionTime": "2021-02-11T10:10:30.000Z",
+          "lastUpdateTime": "2021-02-11T10:10:30.000Z",
+          "message": "Deployment has minimum availability.",
+          "reason": "MinimumReplicasAvailable",
+          "status": "True",
+          "type": "Available"
+        }
+      ]
+    }
+  },
+  {
+    "name": "api-get-trigger",
+    "namespace": "linkapi",
+    "spec": {
+      "replicas": 1,
+      "containers": [
+        {
+          "name": "api-get-trigger",
+          "envFrom": [
+            {
+              "configMapRef": {
+                "name": "api-get-trigger"
+              }
+            },
+            {
+              "secretRef": {
+                "name": "api-get-trigger"
+              }
+            }
+          ],
+          "image": "gcr.io/bionic-spot-253222/api-get-trigger-master:10680",
+          "ports": [
+            {
+              "containerPort": 80,
+              "protocol": "TCP"
+            }
+          ],
+          "resources": {
+            "limits": {
+              "memory": "100Mi"
+            },
+            "requests": {
+              "memory": "100Mi"
+            }
+          }
+        }
+      ]
+    },
+    "status": {
+      "conditions": [
+        {
+          "lastTransitionTime": "2021-02-11T03:34:21.000Z",
+          "lastUpdateTime": "2021-02-11T03:34:21.000Z",
+          "message": "Deployment has minimum availability.",
+          "reason": "MinimumReplicasAvailable",
+          "status": "True",
+          "type": "Available"
+        }
+      ]
+    }
+  },
+  {
+    "name": "api-informix-main",
+    "namespace": "linkapi",
+    "spec": {
+      "replicas": 1,
+      "containers": [
+        {
+          "name": "api-informix-main",
+          "envFrom": [
+            {
+              "configMapRef": {
+                "name": "api-informix-env"
+              }
+            }
+          ],
+          "image": "gcr.io/bionic-spot-253222/api-informix-main:10547",
+          "ports": [
+            {
+              "containerPort": 80,
+              "protocol": "TCP"
+            }
+          ],
+          "resources": {
+            "limits": {
+              "memory": "800Mi"
+            },
+            "requests": {
+              "memory": "800Mi"
+            }
+          }
+        }
+      ]
+    },
+    "status": {
+      "conditions": [
+        {
+          "lastTransitionTime": "2020-11-27T19:27:15.000Z",
+          "lastUpdateTime": "2020-11-27T19:27:15.000Z",
+          "message": "Deployment has minimum availability.",
+          "reason": "MinimumReplicasAvailable",
+          "status": "True",
+          "type": "Available"
+        }
+      ]
+    }
+  },
+  {
+    "name": "api-integration-logs",
+    "namespace": "linkapi",
+    "spec": {
+      "replicas": 10,
+      "containers": [
+        {
+          "name": "api-integration-logs",
+          "image": "gcr.io/bionic-spot-253222/api-integration-logs:build-10657",
+          "ports": [
+            {
+              "containerPort": 80,
+              "protocol": "TCP"
+            }
+          ],
+          "resources": {
+            "limits": {
+              "memory": "700Mi"
+            },
+            "requests": {
+              "memory": "700Mi"
+            }
+          }
+        }
+      ]
+    },
+    "status": {
+      "conditions": [
+        {
+          "lastTransitionTime": "2021-02-19T08:31:04.000Z",
+          "lastUpdateTime": "2021-02-19T08:31:04.000Z",
+          "message": "Deployment has minimum availability.",
+          "reason": "MinimumReplicasAvailable",
+          "status": "True",
+          "type": "Available"
+        }
+      ]
+    }
+  },
+  {
+    "name": "api-integration-metrics",
+    "namespace": "linkapi",
+    "spec": {
+      "replicas": 1,
+      "containers": [
+        {
+          "name": "api-integration-metrics",
+          "image": "gcr.io/bionic-spot-253222/api-integration-metrics-master:10084",
+          "ports": [
+            {
+              "containerPort": 80,
+              "protocol": "TCP"
+            }
+          ],
+          "resources": {
+            "limits": {
+              "memory": "700Mi"
+            },
+            "requests": {
+              "memory": "700Mi"
+            }
+          }
+        }
+      ]
+    },
+    "status": {
+      "conditions": [
+        {
+          "lastTransitionTime": "2020-11-12T10:46:00.000Z",
+          "lastUpdateTime": "2020-11-12T10:46:00.000Z",
+          "message": "Deployment has minimum availability.",
+          "reason": "MinimumReplicasAvailable",
+          "status": "True",
+          "type": "Available"
+        }
+      ]
+    }
+  },
+  {
+    "name": "api-internal",
+    "namespace": "linkapi",
+    "spec": {
+      "replicas": 10,
+      "containers": [
+        {
+          "name": "api-internal",
+          "envFrom": [
+            {
+              "configMapRef": {
+                "name": "api-internal"
+              }
+            },
+            {
+              "secretRef": {
+                "name": "api-internal"
+              }
+            }
+          ],
+          "image": "gcr.io/bionic-spot-253222/api-internal:build-10878",
+          "ports": [
+            {
+              "containerPort": 8080,
+              "protocol": "TCP"
+            }
+          ],
+          "resources": {
+            "limits": {
+              "memory": "70Mi"
+            },
+            "requests": {
+              "memory": "70Mi"
+            }
+          }
+        }
+      ]
+    },
+    "status": {
+      "conditions": [
+        {
+          "lastTransitionTime": "2021-02-18T13:00:57.000Z",
+          "lastUpdateTime": "2021-02-18T13:00:57.000Z",
+          "message": "Deployment has minimum availability.",
+          "reason": "MinimumReplicasAvailable",
+          "status": "True",
+          "type": "Available"
+        }
+      ]
+    }
+  },
+  {
+    "name": "api-jexperts",
+    "namespace": "linkapi",
+    "spec": {
+      "replicas": 1,
+      "containers": [
+        {
+          "name": "api-jexperts",
+          "image": "gcr.io/bionic-spot-253222/api-jexperts:6979",
+          "ports": [
+            {
+              "containerPort": 3500,
+              "protocol": "TCP"
+            }
+          ],
+          "resources": {
+            "limits": {
+              "memory": "500Mi"
+            },
+            "requests": {
+              "memory": "300Mi"
+            }
+          }
+        }
+      ]
+    },
+    "status": {
+      "conditions": [
+        {
+          "lastTransitionTime": "2020-05-12T22:02:55.000Z",
+          "lastUpdateTime": "2020-05-12T22:02:55.000Z",
+          "message": "Deployment has minimum availability.",
+          "reason": "MinimumReplicasAvailable",
+          "status": "True",
+          "type": "Available"
+        }
+      ]
+    }
+  },
+  {
+    "name": "api-jobs",
+    "namespace": "linkapi",
+    "spec": {
+      "replicas": 1,
+      "containers": [
+        {
+          "name": "api-jobs",
+          "envFrom": [
+            {
+              "configMapRef": {
+                "name": "api-jobs"
+              }
+            },
+            {
+              "secretRef": {
+                "name": "api-jobs"
+              }
+            }
+          ],
+          "image": "gcr.io/bionic-spot-253222/lkp-jobs-master:8687",
+          "ports": [
+            {
+              "containerPort": 80,
+              "protocol": "TCP"
+            }
+          ],
+          "resources": {
+            "limits": {
+              "memory": "500Mi"
+            },
+            "requests": {
+              "memory": "500Mi"
+            }
+          }
+        }
+      ]
+    },
+    "status": {
+      "conditions": [
+        {
+          "lastTransitionTime": "2020-11-12T10:46:09.000Z",
+          "lastUpdateTime": "2020-11-12T10:46:09.000Z",
+          "message": "Deployment has minimum availability.",
+          "reason": "MinimumReplicasAvailable",
+          "status": "True",
+          "type": "Available"
+        }
+      ]
+    }
+  },
+  {
+    "name": "api-jobs-gympass",
+    "namespace": "linkapi",
+    "spec": {
+      "replicas": 1,
+      "containers": [
+        {
+          "name": "api-jobs",
+          "envFrom": [
+            {
+              "configMapRef": {
+                "name": "api-jobs"
+              }
+            },
+            {
+              "secretRef": {
+                "name": "api-jobs-gympass"
+              }
+            }
+          ],
+          "image": "gcr.io/bionic-spot-253222/lkp-jobs-master:8687",
+          "ports": [
+            {
+              "containerPort": 80,
+              "protocol": "TCP"
+            }
+          ],
+          "resources": {
+            "limits": {
+              "memory": "500Mi"
+            },
+            "requests": {
+              "memory": "500Mi"
+            }
+          }
+        }
+      ]
+    },
+    "status": {
+      "conditions": [
+        {
+          "lastTransitionTime": "2020-11-12T10:45:45.000Z",
+          "lastUpdateTime": "2020-11-12T10:45:45.000Z",
+          "message": "Deployment has minimum availability.",
+          "reason": "MinimumReplicasAvailable",
+          "status": "True",
+          "type": "Available"
+        }
+      ]
+    }
+  },
+  {
+    "name": "api-logs-master",
+    "namespace": "linkapi",
+    "spec": {
+      "replicas": 3,
+      "containers": [
+        {
+          "name": "api-logs-master",
+          "image": "gcr.io/bionic-spot-253222/api-logs:build-11022",
+          "ports": [
+            {
+              "containerPort": 3005,
+              "protocol": "TCP"
+            }
+          ],
+          "resources": {
+            "limits": {
+              "memory": "100Mi"
+            },
+            "requests": {
+              "memory": "100Mi"
+            }
+          }
+        }
+      ]
+    },
+    "status": {
+      "conditions": [
+        {
+          "lastTransitionTime": "2021-02-19T15:00:11.000Z",
+          "lastUpdateTime": "2021-02-19T15:00:11.000Z",
+          "message": "Deployment has minimum availability.",
+          "reason": "MinimumReplicasAvailable",
+          "status": "True",
+          "type": "Available"
+        }
+      ]
+    }
+  },
+  {
+    "name": "api-logs-pci-new",
+    "namespace": "linkapi",
+    "spec": {
+      "replicas": 1,
+      "containers": [
+        {
+          "name": "api-logs-pci-new",
+          "envFrom": [
+            {
+              "configMapRef": {
+                "name": "api-logs-pci"
+              }
+            },
+            {
+              "secretRef": {
+                "name": "api-logs-pci"
+              }
+            }
+          ],
+          "image": "gcr.io/bionic-spot-253222/api-logs-pci-master:10940",
+          "ports": [
+            {
+              "containerPort": 80,
+              "protocol": "TCP"
+            }
+          ],
+          "resources": {
+            "limits": {
+              "memory": "700Mi"
+            },
+            "requests": {
+              "memory": "700Mi"
+            }
+          }
+        }
+      ]
+    },
+    "status": {
+      "conditions": [
+        {
+          "lastTransitionTime": "2021-02-11T19:17:51.000Z",
+          "lastUpdateTime": "2021-02-11T19:17:51.000Z",
+          "message": "Deployment has minimum availability.",
+          "reason": "MinimumReplicasAvailable",
+          "status": "True",
+          "type": "Available"
+        }
+      ]
+    }
+  },
+  {
+    "name": "api-logs-v2",
+    "namespace": "linkapi",
+    "spec": {
+      "replicas": 1,
+      "containers": [
+        {
+          "name": "api-logs-v2",
+          "envFrom": [
+            {
+              "configMapRef": {
+                "name": "api-logs-v2"
+              }
+            }
+          ],
+          "image": "gcr.io/bionic-spot-253222/api-logs-v2-master:11018",
+          "ports": [
+            {
+              "containerPort": 8080,
+              "protocol": "TCP"
+            }
+          ],
+          "resources": {
+            "limits": {
+              "memory": "200Mi"
+            },
+            "requests": {
+              "memory": "150Mi"
+            }
+          }
+        }
+      ]
+    },
+    "status": {
+      "conditions": [
+        {
+          "lastTransitionTime": "2020-12-31T00:21:09.000Z",
+          "lastUpdateTime": "2020-12-31T00:21:09.000Z",
+          "message": "Deployment has minimum availability.",
+          "reason": "MinimumReplicasAvailable",
+          "status": "True",
+          "type": "Available"
+        }
+      ]
+    }
+  },
+  {
+    "name": "api-metrics",
+    "namespace": "linkapi",
+    "spec": {
+      "replicas": 1,
+      "containers": [
+        {
+          "name": "api-metrics",
+          "image": "danrleymorais/api-nodejs-metrics:1.0.0",
+          "ports": [
+            {
+              "containerPort": 3005,
+              "protocol": "TCP"
+            }
+          ],
+          "resources": {
+            "limits": {
+              "memory": "100Mi"
+            },
+            "requests": {
+              "memory": "100Mi"
+            }
+          }
+        }
+      ]
+    },
+    "status": {
+      "conditions": [
+        {
+          "lastTransitionTime": "2021-02-11T03:34:22.000Z",
+          "lastUpdateTime": "2021-02-11T03:34:22.000Z",
+          "message": "Deployment has minimum availability.",
+          "reason": "MinimumReplicasAvailable",
+          "status": "True",
+          "type": "Available"
+        }
+      ]
+    }
+  },
+  {
+    "name": "api-occ-sandbox",
+    "namespace": "linkapi",
+    "spec": {
+      "replicas": 1,
+      "containers": [
+        {
+          "name": "api-occ-sandbox",
+          "envFrom": [
+            {
+              "configMapRef": {
+                "name": "api-occ-sandbox"
+              }
+            },
+            {
+              "secretRef": {
+                "name": "api-occ-sandbox"
+              }
+            }
+          ],
+          "image": "gcr.io/bionic-spot-253222/api-occ-sandbox-dev:11021",
+          "ports": [
+            {
+              "containerPort": 80,
+              "protocol": "TCP"
+            }
+          ],
+          "resources": {
+            "limits": {
+              "memory": "80Mi"
+            },
+            "requests": {
+              "memory": "50Mi"
+            }
+          }
+        }
+      ]
+    },
+    "status": {
+      "conditions": [
+        {
+          "lastTransitionTime": "2021-02-19T15:19:32.000Z",
+          "lastUpdateTime": "2021-02-19T15:19:32.000Z",
+          "message": "Deployment has minimum availability.",
+          "reason": "MinimumReplicasAvailable",
+          "status": "True",
+          "type": "Available"
+        }
+      ]
+    }
+  },
+  {
+    "name": "api-online-action",
+    "namespace": "linkapi",
+    "spec": {
+      "replicas": 2,
+      "containers": [
+        {
+          "name": "api-online-action",
+          "image": "gcr.io/bionic-spot-253222/api-online-action:7176",
+          "ports": [
+            {
+              "containerPort": 4011,
+              "protocol": "TCP"
+            }
+          ],
+          "resources": {
+            "limits": {
+              "memory": "200Mi"
+            },
+            "requests": {
+              "memory": "150Mi"
+            }
+          }
+        }
+      ]
+    },
+    "status": {
+      "conditions": [
+        {
+          "lastTransitionTime": "2020-11-10T03:15:09.000Z",
+          "lastUpdateTime": "2020-11-10T03:15:09.000Z",
+          "message": "Deployment has minimum availability.",
+          "reason": "MinimumReplicasAvailable",
+          "status": "True",
+          "type": "Available"
+        }
+      ]
+    }
+  },
+  {
+    "name": "api-portal-master",
+    "namespace": "linkapi",
+    "spec": {
+      "replicas": 3,
+      "containers": [
+        {
+          "name": "api-portal-master",
+          "image": "gcr.io/bionic-spot-253222/api-portal-master:10974",
+          "ports": [
+            {
+              "containerPort": 80,
+              "protocol": "TCP"
+            }
+          ],
+          "resources": {
+            "limits": {
+              "memory": "350Mi"
+            },
+            "requests": {
+              "memory": "350Mi"
+            }
+          }
+        }
+      ]
+    },
+    "status": {
+      "conditions": [
+        {
+          "lastTransitionTime": "2021-02-18T21:14:40.000Z",
+          "lastUpdateTime": "2021-02-18T21:14:40.000Z",
+          "message": "Deployment has minimum availability.",
+          "reason": "MinimumReplicasAvailable",
+          "status": "True",
+          "type": "Available"
+        }
+      ]
+    }
+  },
+  {
+    "name": "api-report",
+    "namespace": "linkapi",
+    "spec": {
+      "replicas": 1,
+      "containers": [
+        {
+          "name": "api-report",
+          "image": "gcr.io/bionic-spot-253222/api-report-master:7497",
+          "ports": [
+            {
+              "containerPort": 80,
+              "protocol": "TCP"
+            }
+          ],
+          "resources": {
+            "limits": {
+              "memory": "500Mi"
+            },
+            "requests": {
+              "memory": "500Mi"
+            }
+          }
+        }
+      ]
+    },
+    "status": {
+      "conditions": [
+        {
+          "lastTransitionTime": "2020-11-12T10:46:08.000Z",
+          "lastUpdateTime": "2020-11-12T10:46:08.000Z",
+          "message": "Deployment has minimum availability.",
+          "reason": "MinimumReplicasAvailable",
+          "status": "True",
+          "type": "Available"
+        }
+      ]
+    }
+  },
+  {
+    "name": "api-reports",
+    "namespace": "linkapi",
+    "spec": {
+      "replicas": 3,
+      "containers": [
+        {
+          "name": "api-reports",
+          "image": "gcr.io/bionic-spot-253222/worker-generate-reports:10896",
+          "ports": [
+            {
+              "containerPort": 80,
+              "protocol": "TCP"
+            }
+          ],
+          "resources": {
+            "limits": {
+              "memory": "150Mi"
+            },
+            "requests": {
+              "memory": "100Mi"
+            }
+          }
+        }
+      ]
+    },
+    "status": {
+      "conditions": [
+        {
+          "lastTransitionTime": "2021-02-12T00:26:15.000Z",
+          "lastUpdateTime": "2021-02-12T00:26:15.000Z",
+          "message": "Deployment has minimum availability.",
+          "reason": "MinimumReplicasAvailable",
+          "status": "True",
+          "type": "Available"
+        }
+      ]
+    }
+  },
+  {
+    "name": "api-sdk",
+    "namespace": "linkapi",
+    "spec": {
+      "replicas": 2,
+      "containers": [
+        {
+          "name": "api-sdk",
+          "envFrom": [
+            {
+              "secretRef": {
+                "name": "api-sdk-secret"
+              }
+            },
+            {
+              "configMapRef": {
+                "name": "api-sdk-configmap"
+              }
+            }
+          ],
+          "image": "gcr.io/bionic-spot-253222/api-sdk-master:10919",
+          "ports": [
+            {
+              "containerPort": 80,
+              "protocol": "TCP"
+            }
+          ],
+          "resources": {
+            "limits": {
+              "memory": "500Mi"
+            },
+            "requests": {
+              "memory": "500Mi"
+            }
+          }
+        }
+      ]
+    },
+    "status": {
+      "conditions": [
+        {
+          "lastTransitionTime": "2021-02-19T20:36:45.000Z",
+          "lastUpdateTime": "2021-02-19T20:36:45.000Z",
+          "message": "Deployment has minimum availability.",
+          "reason": "MinimumReplicasAvailable",
+          "status": "True",
+          "type": "Available"
+        }
+      ]
+    }
+  },
+  {
+    "name": "api-transaction",
+    "namespace": "linkapi",
+    "spec": {
+      "replicas": 10,
+      "containers": [
+        {
+          "name": "api-transaction",
+          "envFrom": [
+            {
+              "configMapRef": {
+                "name": "api-transaction"
+              }
+            },
+            {
+              "secretRef": {
+                "name": "api-transaction"
+              }
+            }
+          ],
+          "image": "gcr.io/bionic-spot-253222/api-transaction-master:10685",
+          "ports": [
+            {
+              "containerPort": 8080,
+              "protocol": "TCP"
+            }
+          ],
+          "resources": {
+            "limits": {
+              "memory": "80Mi"
+            },
+            "requests": {
+              "memory": "80Mi"
+            }
+          }
+        }
+      ]
+    },
+    "status": {
+      "conditions": [
+        {
+          "lastTransitionTime": "2021-02-08T14:40:14.000Z",
+          "lastUpdateTime": "2021-02-08T14:40:14.000Z",
+          "message": "Deployment has minimum availability.",
+          "reason": "MinimumReplicasAvailable",
+          "status": "True",
+          "type": "Available"
+        }
+      ]
+    }
+  },
+  {
+    "name": "api-ultron-master",
+    "namespace": "linkapi",
+    "spec": {
+      "replicas": 3,
+      "containers": [
+        {
+          "name": "api-ultron-master",
+          "image": "gcr.io/bionic-spot-253222/api-ultron:build-10989",
+          "ports": [
+            {
+              "containerPort": 80,
+              "protocol": "TCP"
+            }
+          ],
+          "resources": {
+            "limits": {
+              "memory": "800Mi"
+            },
+            "requests": {
+              "memory": "800Mi"
+            }
+          }
+        }
+      ]
+    },
+    "status": {
+      "conditions": [
+        {
+          "lastTransitionTime": "2021-02-19T15:43:19.000Z",
+          "lastUpdateTime": "2021-02-19T15:43:19.000Z",
+          "message": "Deployment has minimum availability.",
+          "reason": "MinimumReplicasAvailable",
+          "status": "True",
+          "type": "Available"
+        }
+      ]
+    }
+  },
+  {
+    "name": "api-update-metrics",
+    "namespace": "linkapi",
+    "spec": {
+      "replicas": 5,
+      "containers": [
+        {
+          "name": "api-update-metrics",
+          "envFrom": [
+            {
+              "configMapRef": {
+                "name": "api-update-metrics"
+              }
+            },
+            {
+              "secretRef": {
+                "name": "api-update-metrics"
+              }
+            }
+          ],
+          "image": "gcr.io/bionic-spot-253222/api-update-metrics-master:10488",
+          "ports": [
+            {
+              "containerPort": 80,
+              "protocol": "TCP"
+            }
+          ],
+          "resources": {
+            "limits": {
+              "memory": "700Mi"
+            },
+            "requests": {
+              "memory": "700Mi"
+            }
+          }
+        }
+      ]
+    },
+    "status": {
+      "conditions": [
+        {
+          "lastTransitionTime": "2021-02-11T03:34:24.000Z",
+          "lastUpdateTime": "2021-02-11T03:34:24.000Z",
+          "message": "Deployment has minimum availability.",
+          "reason": "MinimumReplicasAvailable",
+          "status": "True",
+          "type": "Available"
+        }
+      ]
+    }
+  },
+  {
+    "name": "api-update-metrics-monitor",
+    "namespace": "linkapi",
+    "spec": {
+      "replicas": 1,
+      "containers": [
+        {
+          "name": "api-update-metrics",
+          "envFrom": [
+            {
+              "configMapRef": {
+                "name": "api-update-metrics"
+              }
+            },
+            {
+              "secretRef": {
+                "name": "api-update-metrics"
+              }
+            }
+          ],
+          "image": "gcr.io/bionic-spot-253222/api-update-metrics-master:10488",
+          "ports": [
+            {
+              "containerPort": 80,
+              "protocol": "TCP"
+            }
+          ],
+          "resources": {
+            "limits": {
+              "memory": "700Mi"
+            },
+            "requests": {
+              "memory": "700Mi"
+            }
+          }
+        }
+      ]
+    },
+    "status": {
+      "conditions": [
+        {
+          "lastTransitionTime": "2021-01-26T23:33:09.000Z",
+          "lastUpdateTime": "2021-01-26T23:33:09.000Z",
+          "message": "Deployment has minimum availability.",
+          "reason": "MinimumReplicasAvailable",
+          "status": "True",
+          "type": "Available"
+        }
+      ]
+    }
+  },
+  {
+    "name": "consumer-scheduler-flow",
+    "namespace": "linkapi",
+    "spec": {
+      "replicas": 1,
+      "containers": [
+        {
+          "name": "consumer-scheduler-flow",
+          "image": "gcr.io/bionic-spot-253222/consumer-scheduler:10956",
+          "ports": [
+            {
+              "containerPort": 80,
+              "protocol": "TCP"
+            }
+          ],
+          "resources": {
+            "limits": {
+              "memory": "100Mi"
+            },
+            "requests": {
+              "memory": "100Mi"
+            }
+          }
+        }
+      ]
+    },
+    "status": {
+      "conditions": [
+        {
+          "lastTransitionTime": "2021-02-11T20:56:31.000Z",
+          "lastUpdateTime": "2021-02-11T20:56:31.000Z",
+          "message": "Deployment has minimum availability.",
+          "reason": "MinimumReplicasAvailable",
+          "status": "True",
+          "type": "Available"
+        }
+      ]
+    }
+  },
+  {
+    "name": "consumer-scheduler-highcode",
+    "namespace": "linkapi",
+    "spec": {
+      "replicas": 1,
+      "containers": [
+        {
+          "name": "consumer-scheduler-highcode",
+          "image": "gcr.io/bionic-spot-253222/consumer-scheduler:10956",
+          "ports": [
+            {
+              "containerPort": 80,
+              "protocol": "TCP"
+            }
+          ],
+          "resources": {
+            "limits": {
+              "memory": "100Mi"
+            },
+            "requests": {
+              "memory": "100Mi"
+            }
+          }
+        }
+      ]
+    },
+    "status": {
+      "conditions": [
+        {
+          "lastTransitionTime": "2021-02-11T20:46:38.000Z",
+          "lastUpdateTime": "2021-02-11T20:46:38.000Z",
+          "message": "Deployment has minimum availability.",
+          "reason": "MinimumReplicasAvailable",
+          "status": "True",
+          "type": "Available"
+        }
+      ]
+    }
+  },
+  {
+    "name": "cs-metrics",
+    "namespace": "linkapi",
+    "spec": {
+      "replicas": 1,
+      "containers": [
+        {
+          "name": "cs-metrics",
+          "image": "gcr.io/bionic-spot-253222/cs-metrics-main:10849",
+          "ports": [
+            {
+              "containerPort": 80,
+              "protocol": "TCP"
+            }
+          ],
+          "resources": {
+            "limits": {
+              "memory": "100Mi"
+            },
+            "requests": {
+              "memory": "100Mi"
+            }
+          }
+        }
+      ]
+    },
+    "status": {
+      "conditions": [
+        {
+          "lastTransitionTime": "2021-01-05T18:48:57.000Z",
+          "lastUpdateTime": "2021-01-05T18:48:57.000Z",
+          "message": "Deployment has minimum availability.",
+          "reason": "MinimumReplicasAvailable",
+          "status": "True",
+          "type": "Available"
+        }
+      ]
+    }
+  },
+  {
+    "name": "design-system-master",
+    "namespace": "linkapi",
+    "spec": {
+      "replicas": 1,
+      "containers": [
+        {
+          "name": "design-system-master",
+          "image": "gcr.io/bionic-spot-253222/design-system-master:10434",
+          "ports": [
+            {
+              "containerPort": 80,
+              "protocol": "TCP"
+            }
+          ],
+          "resources": {
+            "limits": {
+              "memory": "200Mi"
+            },
+            "requests": {
+              "memory": "150Mi"
+            }
+          }
+        }
+      ]
+    },
+    "status": {
+      "conditions": [
+        {
+          "lastTransitionTime": "2020-12-07T19:17:04.000Z",
+          "lastUpdateTime": "2020-12-07T19:17:04.000Z",
+          "message": "Deployment has minimum availability.",
+          "reason": "MinimumReplicasAvailable",
+          "status": "True",
+          "type": "Available"
+        }
+      ]
+    }
+  },
+  {
+    "name": "developer-portal-master",
+    "namespace": "linkapi",
+    "spec": {
+      "replicas": 1,
+      "containers": [
+        {
+          "name": "developer-portal-master",
+          "image": "gcr.io/bionic-spot-253222/developer-portal-master:10131",
+          "ports": [
+            {
+              "containerPort": 80,
+              "protocol": "TCP"
+            }
+          ],
+          "resources": {
+            "limits": {
+              "memory": "200Mi"
+            },
+            "requests": {
+              "memory": "150Mi"
+            }
+          }
+        }
+      ]
+    },
+    "status": {
+      "conditions": [
+        {
+          "lastTransitionTime": "2020-10-26T20:51:33.000Z",
+          "lastUpdateTime": "2020-10-26T20:51:33.000Z",
+          "message": "Deployment has minimum availability.",
+          "reason": "MinimumReplicasAvailable",
+          "status": "True",
+          "type": "Available"
+        }
+      ]
+    }
+  },
+  {
+    "name": "developer-portal-ui-master",
+    "namespace": "linkapi",
+    "spec": {
+      "replicas": 1,
+      "containers": [
+        {
+          "name": "developer-portal-ui-master",
+          "image": "gcr.io/bionic-spot-253222/developer-portal-ui-master:10161",
+          "ports": [
+            {
+              "containerPort": 80,
+              "protocol": "TCP"
+            }
+          ],
+          "resources": {
+            "limits": {
+              "memory": "200Mi"
+            },
+            "requests": {
+              "memory": "150Mi"
+            }
+          }
+        }
+      ]
+    },
+    "status": {
+      "conditions": [
+        {
+          "lastTransitionTime": "2020-10-26T20:33:31.000Z",
+          "lastUpdateTime": "2020-10-26T20:33:31.000Z",
+          "message": "Deployment has minimum availability.",
+          "reason": "MinimumReplicasAvailable",
+          "status": "True",
+          "type": "Available"
+        }
+      ]
+    }
+  },
+  {
+    "name": "docs-master",
+    "namespace": "linkapi",
+    "spec": {
+      "replicas": 1,
+      "containers": [
+        {
+          "name": "docs-master",
+          "image": "gcr.io/bionic-spot-253222/docs-master:11029",
+          "ports": [
+            {
+              "containerPort": 80,
+              "protocol": "TCP"
+            }
+          ],
+          "resources": {
+            "limits": {
+              "memory": "200Mi"
+            },
+            "requests": {
+              "memory": "150Mi"
+            }
+          }
+        }
+      ]
+    },
+    "status": {
+      "conditions": [
+        {
+          "lastTransitionTime": "2021-02-11T03:34:16.000Z",
+          "lastUpdateTime": "2021-02-11T03:34:16.000Z",
+          "message": "Deployment has minimum availability.",
+          "reason": "MinimumReplicasAvailable",
+          "status": "True",
+          "type": "Available"
+        }
+      ]
+    }
+  },
+  {
+    "name": "engine-code",
+    "namespace": "linkapi",
+    "spec": {
+      "replicas": 5,
+      "containers": [
+        {
+          "name": "engine-code",
+          "envFrom": [
+            {
+              "configMapRef": {
+                "name": "engine-code-env"
+              }
+            }
+          ],
+          "image": "gcr.io/bionic-spot-253222/engine-code-master:10891",
+          "ports": [
+            {
+              "containerPort": 80,
+              "protocol": "TCP"
+            }
+          ],
+          "resources": {
+            "limits": {
+              "memory": "800Mi"
+            },
+            "requests": {
+              "memory": "500Mi"
+            }
+          }
+        }
+      ]
+    },
+    "status": {
+      "conditions": [
+        {
+          "lastTransitionTime": "2021-02-19T13:43:48.000Z",
+          "lastUpdateTime": "2021-02-19T13:43:48.000Z",
+          "message": "Deployment has minimum availability.",
+          "reason": "MinimumReplicasAvailable",
+          "status": "True",
+          "type": "Available"
+        }
+      ]
+    }
+  },
+  {
+    "name": "engine-code-5bd1c44fbedc7802f83015f9",
+    "namespace": "linkapi",
+    "spec": {
+      "replicas": 6,
+      "containers": [
+        {
+          "name": "engine-code-5bd1c44fbedc7802f83015f9",
+          "envFrom": [
+            {
+              "configMapRef": {
+                "name": "engine-code-env"
+              }
+            }
+          ],
+          "image": "gcr.io/bionic-spot-253222/engine-code-master:10891",
+          "ports": [
+            {
+              "containerPort": 80,
+              "protocol": "TCP"
+            }
+          ],
+          "resources": {
+            "limits": {
+              "memory": "800Mi"
+            },
+            "requests": {
+              "memory": "500Mi"
+            }
+          }
+        }
+      ]
+    },
+    "status": {
+      "conditions": [
+        {
+          "lastTransitionTime": "2021-02-12T00:58:49.000Z",
+          "lastUpdateTime": "2021-02-12T00:58:49.000Z",
+          "message": "Deployment has minimum availability.",
+          "reason": "MinimumReplicasAvailable",
+          "status": "True",
+          "type": "Available"
+        }
+      ]
+    }
+  },
+  {
+    "name": "engine-code-5bd1c44fbedc7802f83015f9-webhook",
+    "namespace": "linkapi",
+    "spec": {
+      "replicas": 7,
+      "containers": [
+        {
+          "name": "engine-code-5bd1c44fbedc7802f83015f9-webhook",
+          "envFrom": [
+            {
+              "configMapRef": {
+                "name": "engine-code-env"
+              }
+            }
+          ],
+          "image": "gcr.io/bionic-spot-253222/engine-code-master:10829",
+          "ports": [
+            {
+              "containerPort": 80,
+              "protocol": "TCP"
+            }
+          ],
+          "resources": {
+            "limits": {
+              "memory": "800Mi"
+            },
+            "requests": {
+              "memory": "500Mi"
+            }
+          }
+        }
+      ]
+    },
+    "status": {
+      "conditions": [
+        {
+          "lastTransitionTime": "2021-02-19T12:36:51.000Z",
+          "lastUpdateTime": "2021-02-19T12:36:51.000Z",
+          "message": "Deployment has minimum availability.",
+          "reason": "MinimumReplicasAvailable",
+          "status": "True",
+          "type": "Available"
+        }
+      ]
+    }
+  },
+  {
+    "name": "engine-code-5f1ef037a0dbec0010ee7ef8",
+    "namespace": "linkapi",
+    "spec": {
+      "replicas": 1,
+      "containers": [
+        {
+          "name": "engine-code-5f1ef037a0dbec0010ee7ef8",
+          "envFrom": [
+            {
+              "configMapRef": {
+                "name": "engine-code-env"
+              }
+            }
+          ],
+          "image": "gcr.io/bionic-spot-253222/engine-code-master:10891",
+          "ports": [
+            {
+              "containerPort": 80,
+              "protocol": "TCP"
+            }
+          ],
+          "resources": {
+            "limits": {
+              "memory": "800Mi"
+            },
+            "requests": {
+              "memory": "500Mi"
+            }
+          }
+        }
+      ]
+    },
+    "status": {
+      "conditions": [
+        {
+          "lastTransitionTime": "2021-02-08T13:59:46.000Z",
+          "lastUpdateTime": "2021-02-08T13:59:46.000Z",
+          "message": "Deployment has minimum availability.",
+          "reason": "MinimumReplicasAvailable",
+          "status": "True",
+          "type": "Available"
+        }
+      ]
+    }
+  },
+  {
+    "name": "engine-code-5f1ef037a0dbec0010ee7ef8-webhook",
+    "namespace": "linkapi",
+    "spec": {
+      "replicas": 1,
+      "containers": [
+        {
+          "name": "engine-code-5f1ef037a0dbec0010ee7ef8-webhook",
+          "envFrom": [
+            {
+              "configMapRef": {
+                "name": "engine-code-env"
+              }
+            }
+          ],
+          "image": "gcr.io/bionic-spot-253222/engine-code-master:10891",
+          "ports": [
+            {
+              "containerPort": 80,
+              "protocol": "TCP"
+            }
+          ],
+          "resources": {
+            "limits": {
+              "memory": "800Mi"
+            },
+            "requests": {
+              "memory": "500Mi"
+            }
+          }
+        }
+      ]
+    },
+    "status": {
+      "conditions": [
+        {
+          "lastTransitionTime": "2021-01-27T14:49:00.000Z",
+          "lastUpdateTime": "2021-01-27T14:49:00.000Z",
+          "message": "Deployment has minimum availability.",
+          "reason": "MinimumReplicasAvailable",
+          "status": "True",
+          "type": "Available"
+        }
+      ]
+    }
+  },
+  {
+    "name": "engine-code-webhook",
+    "namespace": "linkapi",
+    "spec": {
+      "replicas": 4,
+      "containers": [
+        {
+          "name": "engine-code-webhook",
+          "envFrom": [
+            {
+              "configMapRef": {
+                "name": "engine-code-env"
+              }
+            }
+          ],
+          "image": "gcr.io/bionic-spot-253222/engine-code-master:10891",
+          "ports": [
+            {
+              "containerPort": 80,
+              "protocol": "TCP"
+            }
+          ],
+          "resources": {
+            "limits": {
+              "memory": "800Mi"
+            },
+            "requests": {
+              "memory": "500Mi"
+            }
+          }
+        }
+      ]
+    },
+    "status": {
+      "conditions": [
+        {
+          "lastTransitionTime": "2021-01-27T00:03:04.000Z",
+          "lastUpdateTime": "2021-01-27T00:03:04.000Z",
+          "message": "Deployment has minimum availability.",
+          "reason": "MinimumReplicasAvailable",
+          "status": "True",
+          "type": "Available"
+        }
+      ]
+    }
+  },
+  {
+    "name": "engine-flow-master",
+    "namespace": "linkapi",
+    "spec": {
+      "replicas": 5,
+      "containers": [
+        {
+          "name": "engine-flow-master",
+          "image": "gcr.io/bionic-spot-253222/engine-flow-master:10892",
+          "ports": [
+            {
+              "containerPort": 80,
+              "protocol": "TCP"
+            }
+          ],
+          "resources": {}
+        }
+      ]
+    },
+    "status": {
+      "conditions": [
+        {
+          "lastTransitionTime": "2021-02-17T16:43:43.000Z",
+          "lastUpdateTime": "2021-02-17T16:43:43.000Z",
+          "message": "Deployment has minimum availability.",
+          "reason": "MinimumReplicasAvailable",
+          "status": "True",
+          "type": "Available"
+        }
+      ]
+    }
+  },
+  {
+    "name": "engine-flow-master-5bd1c44fbedc7802f83015f9",
+    "namespace": "linkapi",
+    "spec": {
+      "replicas": 5,
+      "containers": [
+        {
+          "name": "engine-flow-master-5bd1c44fbedc7802f83015f9",
+          "image": "gcr.io/bionic-spot-253222/engine-flow-master:10892",
+          "ports": [
+            {
+              "containerPort": 80,
+              "protocol": "TCP"
+            }
+          ],
+          "resources": {}
+        }
+      ]
+    },
+    "status": {
+      "conditions": [
+        {
+          "lastTransitionTime": "2021-02-17T16:43:44.000Z",
+          "lastUpdateTime": "2021-02-17T16:43:44.000Z",
+          "message": "Deployment has minimum availability.",
+          "reason": "MinimumReplicasAvailable",
+          "status": "True",
+          "type": "Available"
+        }
+      ]
+    }
+  },
+  {
+    "name": "engine-flow-master-5ed8e5047ad21b00168b9d03",
+    "namespace": "linkapi",
+    "spec": {
+      "replicas": 5,
+      "containers": [
+        {
+          "name": "engine-flow-master-5ed8e5047ad21b00168b9d03",
+          "image": "gcr.io/bionic-spot-253222/engine-flow-master:10892",
+          "ports": [
+            {
+              "containerPort": 80,
+              "protocol": "TCP"
+            }
+          ],
+          "resources": {}
+        }
+      ]
+    },
+    "status": {
+      "conditions": [
+        {
+          "lastTransitionTime": "2021-02-17T21:25:12.000Z",
+          "lastUpdateTime": "2021-02-17T21:25:12.000Z",
+          "message": "Deployment has minimum availability.",
+          "reason": "MinimumReplicasAvailable",
+          "status": "True",
+          "type": "Available"
+        }
+      ]
+    }
+  },
+  {
+    "name": "integration-store",
+    "namespace": "linkapi",
+    "spec": {
+      "replicas": 1,
+      "containers": [
+        {
+          "name": "integration-store",
+          "image": "gcr.io/bionic-spot-253222/integration-store:10734",
+          "ports": [
+            {
+              "containerPort": 80,
+              "protocol": "TCP"
+            }
+          ],
+          "resources": {
+            "limits": {
+              "memory": "200Mi"
+            },
+            "requests": {
+              "memory": "150Mi"
+            }
+          }
+        }
+      ]
+    },
+    "status": {
+      "conditions": [
+        {
+          "lastTransitionTime": "2021-02-15T13:50:49.000Z",
+          "lastUpdateTime": "2021-02-15T13:50:49.000Z",
+          "message": "Deployment has minimum availability.",
+          "reason": "MinimumReplicasAvailable",
+          "status": "True",
+          "type": "Available"
+        }
+      ]
+    }
+  },
+  {
+    "name": "nginx",
+    "namespace": "linkapi",
+    "spec": {
+      "replicas": 2,
+      "containers": [
+        {
+          "name": "nginx",
+          "envFrom": [
+            {
+              "configMapRef": {
+                "name": "nginx-env"
+              }
+            }
+          ],
+          "image": "gcr.io/bionic-spot-253222/nginx_lua-master:7377",
+          "ports": [
+            {
+              "containerPort": 80,
+              "protocol": "TCP"
+            }
+          ],
+          "resources": {}
+        }
+      ]
+    },
+    "status": {
+      "conditions": [
+        {
+          "lastTransitionTime": "2021-02-15T22:09:03.000Z",
+          "lastUpdateTime": "2021-02-15T22:09:03.000Z",
+          "message": "Deployment has minimum availability.",
+          "reason": "MinimumReplicasAvailable",
+          "status": "True",
+          "type": "Available"
+        }
+      ]
+    }
+  },
+  {
+    "name": "portal-api-management-main",
+    "namespace": "linkapi",
+    "spec": {
+      "replicas": 1,
+      "containers": [
+        {
+          "name": "portal-api-management-main",
+          "image": "gcr.io/bionic-spot-253222/portal-api-management-main:11004",
+          "ports": [
+            {
+              "containerPort": 80,
+              "protocol": "TCP"
+            }
+          ],
+          "resources": {
+            "limits": {
+              "memory": "100Mi"
+            },
+            "requests": {
+              "memory": "100Mi"
+            }
+          }
+        }
+      ]
+    },
+    "status": {
+      "conditions": [
+        {
+          "lastTransitionTime": "2020-11-27T20:04:43.000Z",
+          "lastUpdateTime": "2020-11-27T20:04:43.000Z",
+          "message": "Deployment has minimum availability.",
+          "reason": "MinimumReplicasAvailable",
+          "status": "True",
+          "type": "Available"
+        }
+      ]
+    }
+  },
+  {
+    "name": "portal-ipass-main",
+    "namespace": "linkapi",
+    "spec": {
+      "replicas": 1,
+      "containers": [
+        {
+          "name": "portal-ipass-main",
+          "image": "gcr.io/bionic-spot-253222/portal-ipass-main:11006",
+          "ports": [
+            {
+              "containerPort": 80,
+              "protocol": "TCP"
+            }
+          ],
+          "resources": {
+            "limits": {
+              "memory": "100Mi"
+            },
+            "requests": {
+              "memory": "100Mi"
+            }
+          }
+        }
+      ]
+    },
+    "status": {
+      "conditions": [
+        {
+          "lastTransitionTime": "2020-11-27T19:47:18.000Z",
+          "lastUpdateTime": "2020-11-27T19:47:18.000Z",
+          "message": "Deployment has minimum availability.",
+          "reason": "MinimumReplicasAvailable",
+          "status": "True",
+          "type": "Available"
+        }
+      ]
+    }
+  },
+  {
+    "name": "portal-master",
+    "namespace": "linkapi",
+    "spec": {
+      "replicas": 1,
+      "containers": [
+        {
+          "name": "portal-master",
+          "image": "gcr.io/bionic-spot-253222/portal-master:10983",
+          "ports": [
+            {
+              "containerPort": 80,
+              "protocol": "TCP"
+            }
+          ],
+          "resources": {
+            "limits": {
+              "memory": "100Mi"
+            },
+            "requests": {
+              "memory": "100Mi"
+            }
+          }
+        }
+      ]
+    },
+    "status": {
+      "conditions": [
+        {
+          "lastTransitionTime": "2020-11-10T19:18:09.000Z",
+          "lastUpdateTime": "2020-11-10T19:18:09.000Z",
+          "message": "Deployment has minimum availability.",
+          "reason": "MinimumReplicasAvailable",
+          "status": "True",
+          "type": "Available"
+        }
+      ]
+    }
+  },
+  {
+    "name": "portal-v32-beta",
+    "namespace": "linkapi",
+    "spec": {
+      "replicas": 1,
+      "containers": [
+        {
+          "name": "portal-v32-beta",
+          "image": "gcr.io/bionic-spot-253222/portal-v32-beta-gympass:9102",
+          "ports": [
+            {
+              "containerPort": 80,
+              "protocol": "TCP"
+            }
+          ],
+          "resources": {
+            "limits": {
+              "memory": "200Mi"
+            },
+            "requests": {
+              "memory": "150Mi"
+            }
+          }
+        }
+      ]
+    },
+    "status": {
+      "conditions": [
+        {
+          "lastTransitionTime": "2020-12-03T23:24:29.000Z",
+          "lastUpdateTime": "2020-12-03T23:24:29.000Z",
+          "message": "Deployment has minimum availability.",
+          "reason": "MinimumReplicasAvailable",
+          "status": "True",
+          "type": "Available"
+        }
+      ]
+    }
+  },
+  {
+    "name": "portal-v32-master",
+    "namespace": "linkapi",
+    "spec": {
+      "replicas": 1,
+      "containers": [
+        {
+          "name": "portal-v32-master",
+          "image": "gcr.io/bionic-spot-253222/portal-v32-master:11047",
+          "ports": [
+            {
+              "containerPort": 80,
+              "protocol": "TCP"
+            }
+          ],
+          "resources": {
+            "limits": {
+              "memory": "100Mi"
+            },
+            "requests": {
+              "memory": "100Mi"
+            }
+          }
+        }
+      ]
+    },
+    "status": {
+      "conditions": [
+        {
+          "lastTransitionTime": "2020-12-27T18:46:45.000Z",
+          "lastUpdateTime": "2020-12-27T18:46:45.000Z",
+          "message": "Deployment has minimum availability.",
+          "reason": "MinimumReplicasAvailable",
+          "status": "True",
+          "type": "Available"
+        }
+      ]
+    }
+  },
+  {
+    "name": "portal-v32-wine",
+    "namespace": "linkapi",
+    "spec": {
+      "replicas": 1,
+      "containers": [
+        {
+          "name": "portal-v32-wine",
+          "image": "gcr.io/bionic-spot-253222/portal-v32-beta-wine:7889",
+          "ports": [
+            {
+              "containerPort": 80,
+              "protocol": "TCP"
+            }
+          ],
+          "resources": {
+            "limits": {
+              "memory": "80Mi"
+            },
+            "requests": {
+              "memory": "80Mi"
+            }
+          }
+        }
+      ]
+    },
+    "status": {
+      "conditions": [
+        {
+          "lastTransitionTime": "2021-01-09T01:11:35.000Z",
+          "lastUpdateTime": "2021-01-09T01:11:35.000Z",
+          "message": "Deployment has minimum availability.",
+          "reason": "MinimumReplicasAvailable",
+          "status": "True",
+          "type": "Available"
+        }
+      ]
+    }
+  },
+  {
+    "name": "trigger-scheduler-master",
+    "namespace": "linkapi",
+    "spec": {
+      "replicas": 1,
+      "containers": [
+        {
+          "name": "trigger-scheduler-master",
+          "image": "gcr.io/bionic-spot-253222/trigger-master:10955",
+          "ports": [
+            {
+              "containerPort": 80,
+              "protocol": "TCP"
+            }
+          ],
+          "resources": {
+            "limits": {
+              "memory": "500Mi"
+            },
+            "requests": {
+              "memory": "500Mi"
+            }
+          }
+        }
+      ]
+    },
+    "status": {
+      "conditions": [
+        {
+          "lastTransitionTime": "2021-02-12T02:16:54.000Z",
+          "lastUpdateTime": "2021-02-12T02:16:54.000Z",
+          "message": "Deployment has minimum availability.",
+          "reason": "MinimumReplicasAvailable",
+          "status": "True",
+          "type": "Available"
+        }
+      ]
+    }
+  },
+  {
+    "name": "trigger-webhook-master",
+    "namespace": "linkapi",
+    "spec": {
+      "replicas": 8,
+      "containers": [
+        {
+          "name": "trigger-webhook-master",
+          "image": "gcr.io/bionic-spot-253222/trigger-master:10955",
+          "ports": [
+            {
+              "containerPort": 80,
+              "protocol": "TCP"
+            }
+          ],
+          "resources": {
+            "limits": {
+              "memory": "800Mi"
+            },
+            "requests": {
+              "memory": "800Mi"
+            }
+          }
+        }
+      ]
+    },
+    "status": {
+      "conditions": [
+        {
+          "lastTransitionTime": "2021-02-08T14:40:29.000Z",
+          "lastUpdateTime": "2021-02-08T14:40:29.000Z",
+          "message": "Deployment has minimum availability.",
+          "reason": "MinimumReplicasAvailable",
+          "status": "True",
+          "type": "Available"
+        }
+      ]
+    }
+  },
+  {
+    "name": "trigger-webhook-v2-master",
+    "namespace": "linkapi",
+    "spec": {
+      "replicas": 2,
+      "containers": [
+        {
+          "name": "trigger-webhook-master",
+          "image": "gcr.io/bionic-spot-253222/trigger-master:10955",
+          "ports": [
+            {
+              "containerPort": 80,
+              "protocol": "TCP"
+            }
+          ],
+          "resources": {
+            "limits": {
+              "memory": "300Mi"
+            },
+            "requests": {
+              "memory": "300Mi"
+            }
+          }
+        }
+      ]
+    },
+    "status": {
+      "conditions": [
+        {
+          "lastTransitionTime": "2021-02-12T02:19:43.000Z",
+          "lastUpdateTime": "2021-02-12T02:19:43.000Z",
+          "message": "Deployment has minimum availability.",
+          "reason": "MinimumReplicasAvailable",
+          "status": "True",
+          "type": "Available"
+        }
+      ]
+    }
+  },
+  {
+    "name": "ui-anymarket",
+    "namespace": "linkapi",
+    "spec": {
+      "replicas": 1,
+      "containers": [
+        {
+          "name": "ui-anymarket",
+          "image": "gcr.io/bionic-spot-253222/ui-anymarket-master:10581",
+          "ports": [
+            {
+              "containerPort": 80,
+              "protocol": "TCP"
+            }
+          ],
+          "resources": {
+            "limits": {
+              "memory": "500Mi"
+            },
+            "requests": {
+              "memory": "500Mi"
+            }
+          }
+        }
+      ]
+    },
+    "status": {
+      "conditions": [
+        {
+          "lastTransitionTime": "2020-10-14T19:48:24.000Z",
+          "lastUpdateTime": "2020-10-14T19:48:24.000Z",
+          "message": "Deployment has minimum availability.",
+          "reason": "MinimumReplicasAvailable",
+          "status": "True",
+          "type": "Available"
+        }
+      ]
+    }
+  },
+  {
+    "name": "ui-lab-colombo",
+    "namespace": "linkapi",
+    "spec": {
+      "replicas": 1,
+      "containers": [
+        {
+          "name": "ui-lab-colombo",
+          "image": "gcr.io/bionic-spot-253222/portal-v32-colombo-v5:10841",
+          "ports": [
+            {
+              "containerPort": 80,
+              "protocol": "TCP"
+            }
+          ],
+          "resources": {
+            "limits": {
+              "memory": "20Mi"
+            },
+            "requests": {
+              "memory": "20Mi"
+            }
+          }
+        }
+      ]
+    },
+    "status": {
+      "conditions": [
+        {
+          "lastTransitionTime": "2020-12-07T20:49:13.000Z",
+          "lastUpdateTime": "2020-12-07T20:49:13.000Z",
+          "message": "Deployment has minimum availability.",
+          "reason": "MinimumReplicasAvailable",
+          "status": "True",
+          "type": "Available"
+        }
+      ]
+    }
+  },
+  {
+    "name": "ui-lab-colombo-v4",
+    "namespace": "linkapi",
+    "spec": {
+      "replicas": 1,
+      "containers": [
+        {
+          "name": "ui-lab-colombo-v4",
+          "image": "gcr.io/bionic-spot-253222/ui-lab-v4-colombo-v4-v5:10848",
+          "ports": [
+            {
+              "containerPort": 80,
+              "protocol": "TCP"
+            }
+          ],
+          "resources": {
+            "limits": {
+              "memory": "20Mi"
+            },
+            "requests": {
+              "memory": "20Mi"
+            }
+          }
+        }
+      ]
+    },
+    "status": {
+      "conditions": [
+        {
+          "lastTransitionTime": "2020-12-24T00:07:53.000Z",
+          "lastUpdateTime": "2020-12-24T00:07:53.000Z",
+          "message": "Deployment has minimum availability.",
+          "reason": "MinimumReplicasAvailable",
+          "status": "True",
+          "type": "Available"
+        }
+      ]
+    }
+  },
+  {
+    "name": "worker-billing",
+    "namespace": "linkapi",
+    "spec": {
+      "replicas": 1,
+      "containers": [
+        {
+          "name": "worker-billing",
+          "image": "gcr.io/bionic-spot-253222/worker-billing:9179",
+          "ports": [
+            {
+              "containerPort": 80,
+              "protocol": "TCP"
+            }
+          ],
+          "resources": {
+            "limits": {
+              "memory": "200Mi"
+            },
+            "requests": {
+              "memory": "200Mi"
+            }
+          }
+        }
+      ]
+    },
+    "status": {
+      "conditions": [
+        {
+          "lastTransitionTime": "2021-01-15T14:56:05.000Z",
+          "lastUpdateTime": "2021-01-15T14:56:05.000Z",
+          "message": "Deployment has minimum availability.",
+          "reason": "MinimumReplicasAvailable",
+          "status": "True",
+          "type": "Available"
+        }
+      ]
+    }
+  },
+  {
+    "name": "worker-generate-reports",
+    "namespace": "linkapi",
+    "spec": {
+      "replicas": 2,
+      "containers": [
+        {
+          "name": "worker-generate-reports",
+          "image": "gcr.io/bionic-spot-253222/worker-generate-reports:10896",
+          "resources": {
+            "limits": {
+              "memory": "1536Mi"
+            },
+            "requests": {
+              "memory": "1536Mi"
+            }
+          }
+        }
+      ]
+    },
+    "status": {
+      "conditions": [
+        {
+          "lastTransitionTime": "2021-02-15T14:11:11.000Z",
+          "lastUpdateTime": "2021-02-15T14:11:11.000Z",
+          "message": "Deployment has minimum availability.",
+          "reason": "MinimumReplicasAvailable",
+          "status": "True",
+          "type": "Available"
+        }
+      ]
+    }
+  }
+]

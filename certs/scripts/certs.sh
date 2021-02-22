@@ -343,7 +343,7 @@ add_certs_to_secret() {
 
   SECRET_JSON=$(echo '{}')
   SECRET_JSON=$(echo ${SECRET_JSON} | jq --arg kind "Secret" '. + {kind: $kind}')
-  SECRET_JSON=$(echo ${SECRET_JSON} | jq --arg name "${CERTS_SECRET_NAME}" '. + {metadata: { name: $name, annotations: { "kubed.appscode.com/sync": "app=kubed" }}}')
+  SECRET_JSON=$(echo ${SECRET_JSON} | jq --arg name "${CERTS_SECRET_NAME}" '. + {metadata: { name: $name, annotations: { "kubed.appscode.com/sync": "" }}}')
   SECRET_JSON=$(echo ${SECRET_JSON} | jq '. + {data: {}}')
   SECRET_JSON=$(echo ${SECRET_JSON} | jq --arg cacert "$(get_file_data_for_secret_json "${ACME_CA_FILE}")" '. * {data: {"ca.crt": $cacert}}')
   SECRET_JSON=$(echo ${SECRET_JSON} | jq --arg tlscert "$(get_file_data_for_secret_json "${ACME_FULLCHAIN_FILE}")" '. * {data: {"tls.crt": $tlscert}}')
@@ -423,7 +423,7 @@ add_conf_to_secret() {
 
   SECRET_JSON=$(echo '{}')
   SECRET_JSON=$(echo ${SECRET_JSON} | jq --arg kind "Secret" '. + {kind: $kind}')
-  SECRET_JSON=$(echo ${SECRET_JSON} | jq --arg name "${CONF_SECRET_NAME}" '. + {metadata: { name: $name, annotations: { "kubed.appscode.com/sync": "app=kubed" }}}')
+  SECRET_JSON=$(echo ${SECRET_JSON} | jq --arg name "${CONF_SECRET_NAME}" '. + {metadata: { name: $name, annotations: { "kubed.appscode.com/sync": "" }}}')
   SECRET_JSON=$(echo ${SECRET_JSON} | jq '. + {data: {}}')
   SECRET_JSON=$(echo ${SECRET_JSON} | jq --arg conf "$(get_file_data_for_secret_json /root/config.tar)" '. * {data: {conf: $conf}}')
 

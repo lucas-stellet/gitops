@@ -1,0 +1,41 @@
+--> KUBED
+
+helm repo add appscode https://charts.appscode.com/stable/
+
+helm repo update
+
+helm search repo appscode/kubed --version v0.12.0
+
+helm install kubed appscode/kubed --version v0.12.0 --namespace kube-system
+
+
+- - - - 
+
+--> CERTS
+
+helm repo add certs https://math-nao.github.io/certs/charts
+
+helm repo update
+
+helm install certs --values values.yaml certs/certs
+
+
+values.yaml
+
+# schedule a Kubernetes Job twice a day, certificate is renewed only if it is going to expire soon
+schedule: "0 2,14 * * *"
+
+# add all necessary environment variables for acme.sh dns validation
+# see https://github.com/Neilpang/acme.sh/wiki/dnsapi
+env:
+- name: GD_Key
+  value: dKiQch1WC8hZ_3UdMU62xJmsN9pKPgXiMbV
+- name: GD_Secret
+  value: T9Veokz7ZD9YjPcNzmTdjV
+
+manageAllNamespaces: true
+
+image:
+  registry: lustepe
+  repository: certs
+  tag: latest
