@@ -1,0 +1,9 @@
+certbot certonly --manual --preferred-challenges=dns --email infra@linkapi.solutions --server https://acme-v02.api.letsencrypt.org/directory --agree-tos -d design.linkapi.solutions
+
+docker run -it --rm --name certbot \
+    --volume "/tmp/etc-letsencrypt:/etc/letsencrypt" \
+    --volume "/tmp/var-lib-letsencrypt:/var/lib/letsencrypt" \
+    certbot/certbot certonly \
+    --manual --manual-public-ip-logging-ok \
+    --email infra@linkapi.solutions --agree-tos \
+    --domain design.linkapi.solutions --rsa-key-size 2048

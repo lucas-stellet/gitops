@@ -1,0 +1,14 @@
+version: '3' # specify docker-compose version
+
+services:
+  nginx:
+    image: nginx:alpine
+    container_name: my_nginx
+    volumes:
+      - /home/lucas/dev/practices/gitops/nginx/config/nginx.conf:/etc/nginx/nginx.conf
+    ports:
+      - "80:80" # specify port mapping
+    extra_hosts:
+      - "dockerhost:172.18.0.1"
+      # - "dockerhost:192.168.18.78"
+    network_mode: bridge
